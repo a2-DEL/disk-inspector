@@ -1,0 +1,52 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ===== 虚拟环境 =====
+.venv/
+venv/
+env/
+ENV/
+
+# ===== PyInstaller 构建产物 =====
+build/
+dist/
+*.spec.bak
+
+# ===== 测试临时目录与基准数据 =====
+_bench_out/
+_st_fix/
+_testfix/
+_st_appdata/
+
+# ===== 测试日志与临时报告 =====
+_bench*.log
+_deep_tree_test.log
+_stability_*.log
+_st_inject.log
+_st_normal.log
+_st_report.html
+test_report.html
+
+# ===== 测试截图（运行时生成） =====
+test_gui_*.png
+
+# ===== IDE / 编辑器 =====
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===== 应用运行时数据（用户本地配置，不入库） =====
+# %APPDATA%/DiskInspector/ 下的 config.json / operations.log / error.log / trash/ / backup/

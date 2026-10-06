@@ -1,0 +1,124 @@
+{
+  "version": "1.0",
+  "说明": "磁盘文件检视工具的判定规则库，可自行编辑维护。匹配不区分大小写，路径使用反斜杠。",
+
+  "whitelist": [
+    "C:\\Windows\\System32",
+    "C:\\Windows\\SysWOW64",
+    "C:\\Windows\\WinSxS",
+    "C:\\Windows\\assembly",
+    "C:\\Windows\\System32\\drivers",
+    "C:\\Program Files\\WindowsApps",
+    "C:\\Boot",
+    "C:\\Recovery"
+  ],
+
+  "fast_skip_dirs": [
+    "C:\\Windows\\System32",
+    "C:\\Windows\\SysWOW64",
+    "C:\\Windows\\WinSxS",
+    "C:\\Windows\\assembly",
+    "C:\\Windows\\Microsoft.NET",
+    "C:\\Windows\\Installer",
+    "C:\\Windows\\servicing",
+    "C:\\Windows\\winsxs",
+    "C:\\Program Files\\WindowsApps",
+    "C:\\Boot",
+    "C:\\Recovery",
+    "C:\\Windows\\SystemApps"
+  ],
+
+  "windows_temp_subdirs": [
+    "Temp",
+    "Prefetch",
+    "SoftwareDistribution\\Download",
+    "Logs",
+    "CbsTemp",
+    "Panther",
+    "LiveKernelReports",
+    "Minidump",
+    "Temp\\*"
+  ],
+
+  "temp_dir_keywords": [
+    "temp", "tmp", "cache", "caches", "$recycle.bin",
+    "prefetch", "inetcache", "internet cache", "cookies",
+    "crashdumps", "cbs_temp", "software distribution", "thumbnail cache"
+  ],
+
+  "residue_names": [
+    "unins", "$pluginsdir", "installshield installation information",
+    "uninstall", "卸载", "卸载信息", "uninstaller"
+  ],
+
+  "cache_exts": [
+    ".tmp", ".temp", ".etl", ".blf", ".regtrans-ms", ".log",
+    ".bak", ".old", ".cache", ".dmp", ".crash", ".prv", ".mtx",
+    ".lock", ".chk", ".wbk", ".cab_", ".msi_"
+  ],
+
+  "installer_exts": [
+    ".msi", ".msu", ".cab", ".iso", ".zip", ".rar", ".7z",
+    ".tar", ".gz", ".bz2", ".xz", ".img", ".vhd"
+  ],
+
+  "system_critical_exts": [
+    ".dll", ".sys", ".drv", ".mui", ".ocx", ".cpl", ".mof",
+    ".cat", ".manifest", ".sys32", ".efi", ".ax", ".tlb"
+  ],
+
+  "app_code_exts": [
+    ".exe", ".com", ".scr", ".bat", ".cmd", ".ps1", ".vbs",
+    ".jar", ".dat", ".db", ".idx"
+  ],
+
+  "user_exts": {
+    "文档类": [".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".rtf", ".wps", ".odt", ".epub", ".mobi"],
+    "图片类": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp", ".svg", ".ico", ".tif", ".tiff", ".heic", ".raw", ".psd", ".ai"],
+    "音视频类": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".wma", ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm", ".rmvb", ".m4a", ".m4v"],
+    "压缩包类": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz", ".iso"],
+    "代码类": [".py", ".js", ".ts", ".java", ".c", ".cpp", ".h", ".html", ".css", ".json", ".xml", ".sql", ".go", ".rs", ".php", ".vue"]
+  },
+
+  "user_profile_dirs": [
+    "Desktop", "Documents", "Downloads", "Pictures", "Music", "Videos",
+    "桌面", "文档", "下载", "图片", "视频", "音乐"
+  ],
+
+  "browser_cache_paths": [
+    "AppData\\Local\\Microsoft\\Windows\\INetCache",
+    "AppData\\Local\\Google\\Chrome\\User Data",
+    "AppData\\Local\\Microsoft\\Edge\\User Data",
+    "AppData\\Local\\Mozilla\\Firefox\\Profiles",
+    "AppData\\Local\\360ChromeX\\Chrome\\User Data",
+    "AppData\\Local\\Tencent\\QQBrowser\\User Data",
+    "AppData\\Roaming\\Mozilla\\Firefox\\Profiles"
+  ],
+
+  "purpose_map": {
+    "系统核心组件": [".dll", ".sys", ".drv", ".mui", ".ocx", ".cpl", ".mof", ".cat", ".efi", ".sys32"],
+    "可执行程序": [".exe", ".com", ".scr", ".bat", ".cmd", ".ps1", ".vbs"],
+    "日志文件": [".log", ".etl", ".blf", ".regtrans-ms"],
+    "临时文件": [".tmp", ".temp", ".cache", ".dmp", ".chk", ".lock"],
+    "备份文件": [".bak", ".old", ".wbk", ".prv"],
+    "安装包": [".msi", ".msu", ".cab", ".iso", ".img"],
+    "压缩包": [".zip", ".rar", ".7z", ".tar", ".gz", ".bz2", ".xz"],
+    "数据库文件": [".db", ".idx", ".dat", ".mdb", ".sqlite"],
+    "配置文件": [".ini", ".cfg", ".conf", ".config", ".json", ".xml", ".yaml", ".yml"]
+  },
+
+  "advice_templates": {
+    "system_forbidden": "这是{purpose}，属于系统或软件运行必需文件。删除会导致系统无法启动或软件损坏，已锁定禁止操作。",
+    "system_no_migrate": "这是{purpose}，依赖固定安装位置，迁移会导致软件或系统找不到它，禁止迁移。",
+    "temp_safe": "这是{purpose}，属于临时/缓存内容，删除后可释放磁盘空间，不影响正常使用，可放心清理。",
+    "residue": "这是{purpose}，疑似软件卸载后残留，原软件已不在或注册表无对应信息，确认不再使用后可删除。",
+    "installer": "这是{purpose}，属于安装包/压缩包。已安装完成后可删除以释放空间；不确定是否还需要请先确认。",
+    "user_caution": "这是{purpose}，属于个人数据。删除前请确认不再需要，建议先备份再删除。",
+    "user_migratable": "这是你的{purpose}，属于个人数据，可安全迁移到其他位置，迁移后原位置不会保留副本（选择保留原文件时除外）。",
+    "app_data": "这是{purpose}，属于应用软件数据。删除可能导致软件设置丢失或运行异常，建议谨慎处理。",
+    "large_hint": "该文件体积较大（{size}），是主要占空间文件，如确认无用可优先清理。",
+    "empty_dir": "空文件夹，不占用磁盘空间，确认无用可删除，也可保留。",
+    "occupied": "该文件正被其他程序使用（占用中），无法执行删除/迁移操作。",
+    "unknown": "暂无法识别该文件的具体用途，删除前请自行确认。"
+  }
+}
